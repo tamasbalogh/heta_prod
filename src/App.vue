@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-main>
+      <app-header v-if="$route.meta.isHome"></app-header>
+      <v-container fluid class="pt-0">
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+<!--    <app-footer v-if="$route.meta.isHome"></app-footer>-->
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import appHeader from './components/Home/Header.vue';
+  // import appFooter from './components/Home/Footer.vue';
 
 export default {
+
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    appHeader,
+    // appFooter
+  },
+  data: () => ({
+    //
+  }),
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
